@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <nav class="heade">
+            <div>
+            <img class="logo" src="images/logo/mint.jpg" alt="">
+        </div>
+        <div class="acc">
+            <a href='base.php'>Accueil</a>
+            <a href=''>A propos</a>
+            <a href="base.php?page=cdu">Ajouter Article/Catégorie</a>
+        </div>
+        </nav>
+    </header>
+
+    <nav class="menu">
+        <ul class="menu-vertical">
+            <li><a href="base.php?page=article&action=articles_recent">Articles récents</a></li>
+            
+            <li><a href="base.php?page=categorie&action=categories">Classement par catégorie</a>
+                
+                <ul>
+                    {% for a in cat %}
+                    <li><a href='base.php?page=categorie&action=liste_article_cat&id={{ a.id_cat }}'>{{ a.nom_cat }}</a></li>
+                    {% endfor %}
+                </ul>
+                
+            </li>
+        </ul>
+    </nav>
+
+
+
+    {% block title %}<h1>Bienvenue dans le blog, voici l'accueil et l'ensembles des articles</h1>{% endblock %}
+
+    {% block main %}
+    <div class="ensemble">
+        <div class="ensemble2">
+            {% for a in liste %}
+
+            <div class="article">
+
+                <h2 class="titre">{{ a.nom_techno }}</h2>
+                <img class="images_art" src="{{ a.images_techno }}" alt="">
+                <div class="description">
+                    <p class="categorie">{{ a.extrait_techno | raw }}</p>
+                    <p class="droite">{{ a.dates_techno }}</p>
+                </div>
+                <div class="bouton">
+                    <a href="base.php?page=article&action=articles&id={{a.id_techno}}"><button><b>Voir l'article</b></button></a>
+                </div>
+                
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+    {% endblock main %}
+    
+    {% block commentaire %}
+    {% endblock commentaire %}
+
+    <footer>
+        Tout droits réservés - Fanny GUTTING
+    </footer>
+
+</body>
+
+</html>

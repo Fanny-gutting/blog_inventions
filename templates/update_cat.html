@@ -1,0 +1,23 @@
+{% extends "accueil.html" %}
+
+{% block title %}<h1>Modifier la catégorie</h1>{% endblock %}
+
+
+{% block main %}
+
+{% for a in cat %}
+<div class="form-style-5">
+<form action="base.php?page=updateCat&action=update_cat&id={{a.id_cat}}" method="post">
+
+    <label for="name">Nom de la catégorie : </label>
+    <input type="text" name="nom_cat" value="{{a.nom_cat}}">
+
+    <label for="name">Lien de l'image :</label>
+    <input type="url" name="images_cat" value="{{a.images_cat}}">
+
+    <input class="ajout" type="submit" value="modifier la catégorie">
+
+</form>
+</div>
+{% endfor %}
+{% endblock main %}

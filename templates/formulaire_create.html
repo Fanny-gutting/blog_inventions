@@ -1,0 +1,60 @@
+{% extends "accueil.html" %}
+
+{% block title %}<h1>Create</h1>{% endblock %}
+
+{% block main %}
+
+{# create Cat #}
+<div class="align">
+<form action="base.php?page=cdu&action=create_cat" class="" method="post">
+    <div class="form-style-5">
+    <h3>Création d'une catégorie :</h3>
+
+    <label for="name">Nom de la catégorie :</label>
+    <input type="text" id="name" name="nom_cat" required minlength="4" maxlength="8" size="50">
+
+
+    <label for="name">Lien de l'image :</label>
+    <input type="url" name="images_cat" placeholder="https://...">
+
+    <input class="ajout" type="submit" value="Ajouter la catégorie">
+</div>
+</form>
+
+{# create Techno #}
+
+<form action="base.php?page=cdu&action=create_techno" class="" method="post">
+    <div class="form-style-5">
+    <h3>Création d'un article :</h3>
+
+    <label for="name">Nom de l'article :</label>
+    <input type="text" id="name" name="nom_techno" required minlength="4" maxlength="8" size="50">
+
+
+    <label for="name">Lien de l'image :</label>
+    <input type="url" name="images_techno" placeholder="https://...">
+
+
+    <label for="name">Court résumé de l'article :</label>
+    <input type="text" id="name" name="extrait_techno">
+
+    <label for="name">La totalité de l'article :</label>
+    <textarea id="comment" class="form-control" name="description_techno" cols="45" rows="8" placeholder="Ecrivez ici" required="required">
+    </textarea>
+
+    <label for="name">La date de la technologie :</label>
+    <input type="date" id="name" name="dates_techno">
+
+    <label for="name">Dans quel catégorie appartiens l'article ? :</label>
+    <select name="id_cat" id="name">
+        <option value="">--Please choose an option--</option>
+        {% for a in cat %}
+        <option value="{{a.id_cat}}"> {{a.nom_cat}} </option>
+        {% endfor %}
+    </select>
+
+    <input class="ajout" type="submit" value="Ajouter l'article">
+</div>
+</form>
+</div>
+{% endblock main %}

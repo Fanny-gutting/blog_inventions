@@ -1,0 +1,30 @@
+{% extends "accueil.html" %}
+
+
+{% block title %}<h1>Article par catégorie</h1>{% endblock %}
+
+
+{% block main %}
+<div class="cat">
+    {% for a in cat %}
+    <a href="base.php?page=categorie&action=liste_article_cat&id={{a.id_cat}} " class="">
+        <div class="cate">
+            <h3 class="">{{ a.nom_cat }}</h3>
+            <img src="{{ a.images_cat }}" alt="image" class="cardImg">
+            <div>
+                <a href="base.php?page=cdu&action=delete_cat&id={{a.id_cat}}">
+                    <img class="poubelle" src="images/icone/poubelle.png" alt="">
+                </a>
+                <a href="base.php?page=updateCat&id={{a.id_cat}}">
+                    <img class="poubelle" src="images/icone/update.png" alt="">
+                </a>
+            </div>
+        </div>
+
+    </a>
+
+
+
+    {% endfor %}
+</div>
+{% endblock main %}
