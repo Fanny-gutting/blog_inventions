@@ -4,7 +4,7 @@ $config = array(
   'driver' => 'mysql',
   'serveur' => 'localhost',
   'base' => 'gutting_projet_infos3',
-  'utilisateur' => 'gutting',
-  'mdp' => 'zAwaX32ima5cWXUi'
+  'utilisateur' => 'root',
+  'mdp' => ''
 );
 ?>

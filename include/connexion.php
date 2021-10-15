@@ -1,6 +1,6 @@
 <?php
 // on inclut le fichier de configuration
-include_once('config.php');
+include_once(file_exists('config.php')? 'config.php' : 'config.git.php');
  
 function connexion() {
   // indique qu'on utilise la variable globale $config, définie dans le fichier 'config.php'
