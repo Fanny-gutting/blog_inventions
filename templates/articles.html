@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block title %}<h1>{{ liste.nom_techno }}</h1>{% endblock %}
+
+{% block main %}
+<div class="ensemble">
+    <div class="ensemble2">
+
+        <img class="images_art" src="{{ liste.images_techno }}" alt="">
+
+        <p class="categorie">{{ liste.description_techno | raw }}</p>
+        <p class="droite">{{ liste.dates_techno }}</p>
+
+    </div>
+</div>
+
+{% endblock main %}

@@ -41,7 +41,7 @@ switch($page) {
   
     case 'articles' : 
       $modele='articles.html';
-      $data=['techno'=>Tech::readTechno($id), 'cat'=>Categorie::readAll()];
+      $data=['liste'=>Tech::readTechno($id), 'techno'=>TechCat::readTech()];
     break;
 
     case 'createCom':
@@ -114,7 +114,7 @@ case 'cdu':
 break;
 
     default : 
-    $modele='accueil.html';
+    $modele='index.html';
     $data=['liste'=>TechCat::readTech(), 'cat'=>Categorie::readAll()];
 }
 

@@ -6,7 +6,10 @@ function init_twig() {
     $loader = new \Twig\Loader\FilesystemLoader('templates');
 
     // Crée un nouveau moteur Twig
-    $twig = new \Twig\Environment($loader);
+    $twig = new \Twig\Environment($loader, [
+        'debug' => true
+    ]);
+    $twig->addExtension(new \Twig\Extension\DebugExtension());
 
     // Renvoie le moteur
     return $twig;
